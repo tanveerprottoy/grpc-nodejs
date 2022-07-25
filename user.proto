@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package userPackage;
+
+message void {}
+
+message User {
+    int32 id = 1;
+    string name = 2;
+    string address = 3;
+}
+
+message Users {
+    repeated User users = 1;
+}
+
+service UserService {
+    rpc createUser(User) returns (User);
+    rpc readUsers(void) returns (Users);
+}
