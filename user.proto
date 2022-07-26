@@ -2,12 +2,11 @@ syntax = "proto3";
 
 package userPackage;
 
-message void {}
+message voidParam {}
 
 message User {
     int32 id = 1;
     string name = 2;
-    string address = 3;
 }
 
 message Users {
@@ -16,5 +15,6 @@ message Users {
 
 service UserService {
     rpc createUser(User) returns (User);
-    rpc readUsers(void) returns (Users);
+    rpc readUsers(voidParam) returns (Users);
+    rpc readUserStream(voidParam) returns (stream User);
 }
